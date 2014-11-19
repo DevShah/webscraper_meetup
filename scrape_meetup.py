@@ -59,6 +59,7 @@ for index, tr in enumerate(table_doc.xpath("tr//td[@class='title']/a")):
 
 
 # #
+# SELENIUM CODE
 # http://www.w3schools.com/ajax/default.asp
 # driver.find_element_by_tag_name("button”)
 # driver.find_element_by_tag_name("button").click()
