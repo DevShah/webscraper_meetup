@@ -4,11 +4,11 @@ import lxml.html
 # extensible library for opening URLs
 import urllib2
 
-# link format of scraper
+# The base url - after we specify the page number which will replace that %s, we have the link that we will be scraping
 link = 'http://colleges.usnews.rankingsandreviews.com/best-colleges/rankings/national-universities/data/page+%s'
 
 
-# We're going to iterate for the first ten pages
+# We're going to iterate for the first ten pages of usnews for national-university rankings
 for page in xrange(1,10):
     # open_link = 'http://colleges.usnews.rankingsandreviews.com/best-colleges/rankings/national-universities/data/page+1', 'http://colleges.usnews.rankingsandreviews.com/best-colleges/rankings/national-universities/data/page+2', etc. as a result of this line
 
