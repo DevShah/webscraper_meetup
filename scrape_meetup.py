@@ -4,6 +4,12 @@ import urllib2
 import lxml.html
 from pymongo import MongoClient
 
+
+HOST = 'localhost'
+PORT = 27017
+
+client = MongoClient(HOST, PORT)
+
 hdr = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
  'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'}
 
@@ -68,11 +74,10 @@ for index, tr in enumerate(table_doc.xpath("tr//td[@class='title']/a")):
 
 
 
-
+'''
 # #
 # SELENIUM CODE
 # http://www.w3schools.com/ajax/default.asp
-# driver.find_element_by_tag_name("button”)
 # driver.find_element_by_tag_name("button").click()
 
 import os
@@ -83,4 +88,4 @@ os.environ["webdriver.chrome.driver"] = chromedriver
 driver = webdriver.Chrome(chromedriver)
 driver.get("http://www.w3schools.com/ajax/default.asp")
 # driver.quit()
-# #
+# #'''
