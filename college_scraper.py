@@ -1,7 +1,9 @@
 # HTML parser
+# http://lxml.de/lxmlhtml.html
 import lxml.html
 
 # extensible library for opening URLs
+# https://docs.python.org/2/library/urllib2.html
 import urllib2
 
 # The base url - after we specify the page number which will replace that %s, we have the link that we will be scraping
@@ -11,7 +13,6 @@ link = 'http://colleges.usnews.rankingsandreviews.com/best-colleges/rankings/nat
 # We're going to iterate for the first ten pages of usnews for national-university rankings
 for page in xrange(1,10):
     # open_link = 'http://colleges.usnews.rankingsandreviews.com/best-colleges/rankings/national-universities/data/page+1', 'http://colleges.usnews.rankingsandreviews.com/best-colleges/rankings/national-universities/data/page+2', etc. as a result of this line
-
     open_link = link % page
 
     # Open up the url and store the response.
@@ -28,13 +29,16 @@ for page in xrange(1,10):
     # You can also specify things for each tag, like any attributes it has
     # See the following example:
     # The following returns a list of div tags which has contains the class attribute
-    # 'tag' and 'btag'
+    # 'tag' and 'btag'.
     # 
     # //div[contains(@class,'atag') and contains(@class ,'btag')]
     #
+    # On the page source, it would most likely look like this
+    #
+    # <div class = 'atag maybe_some_more_stuff btag other_stuff_maybe'></div>
+    #
     # The notation [1:] means that we want everything from the first element onward
     # i.e. omit the zeroth element
-
     for row in doc.xpath("//table//tr")[1:]:
         # name is in the 2nd column, and tuition in the 3rd (columns start at zero/are zero indexed)
         name = row.xpath("td/a")[0].text_content().strip()
